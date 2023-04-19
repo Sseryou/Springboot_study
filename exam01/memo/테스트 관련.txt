@@ -1,0 +1,8 @@
+행위 테스트
+
+
+MockMvc를 사용하기 위해 임포트 필요
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;

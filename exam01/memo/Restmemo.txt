@@ -1,0 +1,57 @@
+JSON 응답과 요청 처리
+1. JSON 개요
+JSON(JavaScript Object Notation) - 자바스크립트 객체 표기법
+
+
+2. Jackson 의존설정 - 응답, 요청
+일반적인 스프링에서 사용하려면 하단의 두 의존성이 필요하다.
+스프링부트는 기본 세팅이 완료되어있다.
+	- jackson databind
+	- Jackson Datatype: JSR310 : Data and Time API
+									(java.time 패키지)
+									
+	참고) JSR - Java Specification Requests
+	
+	
+3. @RestController
+	- JSON 응답과 요청 처리 Controller
+	- 자바 객체 반환 -> getter를 호출해서 JSON 형식으로 생성
+	- 반환값 없으면 - 응답 헤더 content-type:text/plain
+	- 문자(String) 그대로 응답
+
+4. 날짜 형식 변환 처리
+	-@JsonFormat
+	
+4.1 JSON 변환 제외
+	- @JsonIgnore
+	
+5. ResponseEntity
+	응답 + body
+			
+		status(응답 코드)
+		body(T t) - 응답시 출력 객체
+		build() - 응답 출력 데이터 X
+	
+6. @ResponseBody
+	- 일반 컨트롤러(@Controller)에서 특정 요청 메서드만  Rest로 사용하는 경우
+	
+7. RequestBody
+- 커맨드 객체의 매핑은 기본적으로 POST일때는 Content-Type : application/x-www-form-urlencoded
+- application/json : JSON 형식이면 서버에서 자동 변환 X
+- @RequestBody 커맨드 객체 : 변환 O
+
+	- Jackson databind - ObjectMapper : JSON 문자열 -> 자바 객체 변환
+
+	- 스프링 : RestTemplate
+
+ARC - Advance Rest Client
+
+8. @ExceptionHandler
+- @RestControllerAdvice : Rest 컨트롤러 공통기능
+
+
+
+Builder 패턴
+		- setter 메서드를 대체
+		- 메서드 체이닝 방식으로 값을 설정
+	

@@ -1,0 +1,91 @@
+Spring Data JPA
+
+
+1.JPA 동작방식
+springboot data jpa - starter
+
+Spring Data JPA
+Spring Boot Starter data jpa -이거 사용
+Ojdbc8
+H2 database
+
+테스트용 테이블 
+자바 - 메모리 기반 테이블
+H2 database
+
+
+ddl-auto
+	create : 모든 테이블 DROP -> 다시 생성 : 개발 초기
+	update : 테이블 DROP 하지 않음, 변경된 항목만 테이블에 추가, 변경 : 개발 중기
+	validate : 테이블의 차이점을 검증. 생성, 변경 X : 테스트, 배포
+	none :  아무것도 X : 배포 서버
+	
+	create는 기존 데이터를 날려버릴수 있으니 배포시 절대로 확인할것
+
+
+JPA - Java Persistence API : 자바 영속성 API
+구현체 : Hibernate Entity Manager
+https://jakarta.ee/specifications/platform/10/apidocs/
+
+Persistence(영속성) : 엔티티의 변화 감지 메모리
+
+EntityManagerFactory : EntityManager를 생성
+
+EntityManager : 영속성 관리자
+
+
+영속성에 엔티티의 상태 감지 -> 쿼리 실행
+
+EntityManager : 영속성 관리 메서드
+	persist(엔티티) : 엔티티를 영속 상태로 만드는 메서드
+						(상태 감지)
+						
+	flush() : 영속성의 상태 변경 상태를 DB에 반영
+	remove() : 영속성의 제거 상태 변경(영속성 분리 X, 제거 '상태')
+				->flush() 가 실행되면 DELETE 쿼리 실행
+	
+	find(): 조회
+			-> 영속 상태가 아니면 DB에서 조회 -> 영속 상태 -> 조회
+			-> 영속 상태 -> 조회(캐시의 이점)
+			
+	detach() : 영속 상태 분리
+			-> 상태 변화 감지 X
+	
+	merge : 영속 상태 분리 된 엔티티를 다시 영속 상태로 만드는 것
+			-> 상태 변화 감지
+			
+데이터 추가, 수정, 삭제 : O
+조회 - 사용시 제한 O
+
+JPQL - Java Persistence Query Language
+
+
+2. Entitiy  설계하기
+
+3. Repository 설계하기
+	JpaRepository 인터페이스 상속 -> 구현체를 Proxy 형태로 자동생성
+
+	엔티티 save(엔티티)
+	.... saveAndFlush(...)
+	saveAll
+	saveAllAndFlush(...)
+
+	findAll
+	findOne
+	
+	count() : 전체 갯수를 조회
+	delete(엔티티) : 영속성 제거
+	flush() 
+	
+
+4. 쿼리 메서드
+
+5. @Quary 애노테이션
+
+6. Quarydsl
+
+7. 연관관계 매핑
+
+8. 영속성 전이
+
+9. 지연로딩

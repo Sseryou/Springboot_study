@@ -1,0 +1,7 @@
+@RestController
+		- 객체 반환 -> getter -> JSON 응답 //응답 객체가 반드시 getter가 있어야 한다.
+		- 날짜 형식화 -> @JsonFormat
+		- @JsonIgnore : 특정 항목 제외
+		
+@ResponseBody
+		- 일반 컨트롤러에서 Rest 사용시

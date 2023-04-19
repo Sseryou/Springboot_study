@@ -1,0 +1,108 @@
+초기 파일 생성은 인텔리j가 아닌 스프링부트 페이지에서 하게 된다.
+
+spring initializr 접속,
+프로젝트는 Maven, 언어는 JAVA,
+스프링부트는 3.0.5
+프로젝트 메타데이터는
+Group : org.koreait
+Artifact: exam01
+Name: exam01
+Description: exam01
+Package name : org.koreait
+Packaging : jar
+Java : 20
+
+
+Dependencies는
+Lombok,
+Spring Boot DevTools,
+Spring Web,
+Thymeleaf,
+Spring Data JDBC,
+Validation
+
+까지 설정 후,
+GENERATE를 눌러 알집 파일을 다운받는다.
+다운받으면, 그 안에는 exam01 프로젝트가 있다.
+그것을 인텔리j로 실행시키면 된다.
+
+------------------------브라우저에 설치 ---------------------------------------
+크롬에다가 설치
+chrome  확장 팩 - liveReload chrome 확장 프로그램 추가
+서버가 켜지면, 활성화 되는 프로그램이다.
+
+
+------------------------인텔리j 내부에서의 설정--------------------------------
+Settings -> Editor -> File Encodings
+프로젝트 인코딩 -> UTF-8
++ 버튼 누르고 src 폴더 추가
+디폴트 인코딩 프로퍼티 파일 -> UTF-8
+
+Settings -> Compiler 내부 설정의 Build project automatically 활성화
+Advanced Settings
+Allow auto-make to start even if..... 옵션 활성화
+
+
+
+pom.xml을 연다.
+자바 버전을 자기에게 맞게 바꿔준다.
+
+추가적인 의존성 추가가 필요하다.
+thymeleaf layout
+ojdbc8
+H2 Database
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.1.214</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.oracle.database.jdbc</groupId>
+			<artifactId>ojdbc8</artifactId>
+			<version>23.2.0.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		
+까지 추가후,
+
+application.properties 에서 포트설정과 데이터베이스 설정, 캐시 비활성화, 정적 자원 설정을 해야 한다.
+
+server.port=3000
+
+# Spring Dev Tool 설정 -배포시 비활성화-
+spring.devtools.livereload.enabled=true
+
+# 데이터 베이스 설정
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.username=springdb
+spring.datasource.password=aA123456
+
+# 타임리프 설정 -캐시부분 배포시 활성화-
+spring.thymeleaf.cache=false
+spring.thymeleaf.prefix=file:src/main/resources/templates/
+
+# 정적 자원 설정(css, js)
+spring.resources.static-locations=file:src/main/resources/static/
+
+# 파일 업로드 설정
+spring.servlet.multipart.max-file-size=20MB
+spring.servlet.multipart.max-request-size=60MB
+file.upload.path=D:/uploads/
+
+
+
+
+
+
+ pom.xml을 우클릭 해서 새 maven 프로젝트를 실행시키면 된다.
+
+

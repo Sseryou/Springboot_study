@@ -1,0 +1,132 @@
+스프링 부트
+1. MVC 
+
+M - model
+V - view
+C - controller
+
+2. 셋팅
+
+- 톰캣 10 내장
+- jakarta ee 9
+- javax -> jakarta
+
+live reload
+
+Ctrl + Alt + L = 자동정렬
+Ctrl + Shift + A = action이라는 창이 나온다.
+또는, help에서 find action을 누를수 있다.
+
+
+(다음에 유료버전에서)
+//registry... 을 검색하고,
+//compiler.automake.allow.when.app.running 활성화
+
+
+
+
+
+
+
+(무료도 사용가능)
+Settings -> Compiler 내부 설정의 Build project automatically 활성화
+Advanced Settings
+Allow auto-make to start even if..... 옵션 활성화
+
+크롬에다가 설치
+chrome  확장 팩 - liveReload chrome 확장 프로그램 추가
+서버가 켜지면, 활성화 되는 프로그램이다.
+
+
+
+
+H2 Database - 자바 기반 관계형 데이터베이스 -2.1.214 버전 사용
+				- 메모리 기반
+				- 테스트용 DB
+				
+
+
+spring initializr
+
+maven , java, 3.0.5
+
+Project Metadata
+
+
+
+
+
+추가 
+
+lombok
+Spring Boot DevTools (개발 환경에서만 사용)
+
+Spring Web 
+
+Thymeleaf
+
+Spring Data JDBC (나중에 Spring Data JPA 사용)
+
+Validation (hibernate 포함)
+
+
+
+설정 완료 후 generate -> 알집 파일이 나온다.
+알집 파일에는 세팅 완료된 자바 파일이 나온다.
+
+
+
+pom.xml 열기
+
+레이아웃, 데이터베이스 추가 해줄필요가 있음.
+
+thymeleaf layout
+ojdbc8
+H2 Database
+
+maven 안보이면 pom.xml 우클릭해서 메이븐 프로젝트 추가
+
+
+만들어진 org.xxx 이하의 클래스들은 전부 스캔 범위안에 들어가 있다.
+org 경로 밑에 만들게 된다.
+
+
+
+application.properties에서 설정을 진행한다.
+포트를 바꿔야 한다.
+server.port=3000
+
+데이터베이스 설정을 해야 한다.
+
+#데이터 베이스 설정
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.username=springdb
+spring.datasource.password=aA123456
+
+
+view를 template이 대신하게 된다.
+
+실행은 톰캣이 아니라 메인 메서드에서 실행하게 된다.
+
+
+
+메세지
+파일 업로드 경로
+
+
+
+
+3. 스프링 부트 스케줄러
+
+- @EnableScheduling (무언가를 일정 주기로 실행해야 할 때)
+- @Scheduled
+	cron 초, 분, 시 ,일, 월, 요일 - 주기적 실행
+	fixedDelay : 실행 이후 일정 시간 지연 후 다시 실행
+	fixedRate : 실행 시점 이후 지연 후 다시 실행
+	fixedDelayString
+	fixedRateString
+	initialDelay : 실행 전 지연 후 실행
+	initialDelayString
+	
+4.MockMvc
