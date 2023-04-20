@@ -1,0 +1,40 @@
+Querydsl JPA Support
+Querydsl APT Support
+ 
+의존성 추가 후
+<classifier>jakarta</classifier>를 안에 붙여줘야 인식할 수 있다.
+
+Maven APT Plugin 추가 필요
+
+<!-- https://mvnrepository.com/artifact/com.mysema.maven/apt-maven-plugin -->
+<dependency>
+    <groupId>com.mysema.maven</groupId>
+    <artifactId>apt-maven-plugin</artifactId>
+    <version>1.1.3</version>
+</dependency>
+
+<dependency>부분을 <plugin>으로 바꿔서 <plugins> 사이에 넣기
+
+그 다음
+
+		<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>apt-maven-plugin</artifactId>
+				<version>1.1.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/java</outputDirectory>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+를 추가로 만들어주기....
+
+만약 추가로 무언가를 설치하라고 로그가 뜬다면, 그것도 설치해주면 된다.
+
+n+1 문제?

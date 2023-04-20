@@ -1,0 +1,52 @@
+Spring Data JPA
+Pageable 인터페이스
+	- 페이징
+
+PageRequest.of(int page, int size)
+		- page 페이지 번호(0부터 시작)
+		- size 추출 갯수
+
+1. 쿼리 메서드
+
+2. @Query 애노테이션
+
+3. Querydsl
+querydsl-jpa
+querydsl-apt : 쿼리빌딩 기능이 있는 새로운 클래스를 자동생성 한다.
+
+plugin - 백그라운드 프로그램
+apt-maven-plugin
+
+javax
+jakarta
+
+BooleanBuilder - Predicate의 구현체
+- WHERE 조건
+
+Q엔티티
+
+쿼리 DSL, Repository 인터페이스 상속에
+QuerydslPredicateExecutor 추가
+
+lt -> lesser then <
+le -> lesser then equal <=
+gt -> greater then >
+ge -> greater then equal >=
+like
+desc
+asc
+
+
+4. 연관관계 매핑
+@ManyToOne : 다대일 매핑 (한명의 회원이 여러개를 주문하는 경우 생각)
+@OneToMany : 일대다 매핑
+@OneToOne : 일대일 매핑 (한명의 회원이 한개의 테이블을 갖는 경우 생각)
+
+@ManyToMany (잘 안씀)
+
+
+5. 영속성 전이
+
+6. 지연로딩
+
+7. Auditing을 이용한 공통 속성화
