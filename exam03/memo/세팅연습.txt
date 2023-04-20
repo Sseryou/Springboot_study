@@ -20,7 +20,7 @@ MVN 추가
 Thymeleaf Layout Dialect » 3.2.1
 Querydsl JPA Support » 5.0.0
 Querydsl APT Support » 5.0.0
-Maven APT Plugin » 1.1.3
+Maven APT Plugin » 1.1.3 (com.mysema.maven으로 검색해야 제대로 나옴)
 Ojdbc8 » 23.2.0.0
 Orai18n » 19.3.0.0
 
