@@ -1,0 +1,20 @@
+Spring Security
+- 회원 인증(로그인), 인가(접근 제어)
+- 보안(CSRF)
+
+Starter Spring Security -설치
+
+Maven Repository에서
+
+Spring Boot Starter Security  설치
+
+
+설치 후 이전처럼 페이지에 접속하려 하면 로그인 창이 뜬다
+로그를 보면, 패스워드가 있다.
+아이디는 user이다.
+Using generated security password: 947bcecc-133b-4dad-924c-3847e6f0e136
+
+설정 클래스가 필요하다.
+이전의 로그인 컨트롤러를 만드는 방식으로 진행
+
+ 

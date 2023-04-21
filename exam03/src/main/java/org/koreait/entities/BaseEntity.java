@@ -22,12 +22,12 @@ public abstract class BaseEntity {
 
     //jakarta에 있는걸로 사용
     @CreatedDate //영속성에 추가 될 때만 생성
-    @Column(updatable = false) //수정불가
+    @Column(updatable = false) //수정(UPDATE) 불가
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime regDt; //등록일자
 
     @LastModifiedDate //영속성 안에서 수정할 때만 생성
-    @Column(insertable = false)
+    @Column(insertable = false) //추가(INSERT) 불가, 수정 할때만 변경
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime modDt; // 수정일자
 
