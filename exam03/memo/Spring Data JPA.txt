@@ -39,7 +39,7 @@ asc
 
 4. 연관관계 매핑
 @ManyToOne : 다대일 매핑 (한명의 회원이 여러개를 주문하는 경우 생각)
-
+	
 		게시글(BoardData) - Many
 			- One 쪽의 외래키 (Member : userNo)
 			
@@ -55,16 +55,27 @@ asc
 
 
 @OneToOne : 일대일 매핑 (한명의 회원이 한개의 테이블을 갖는 경우 생각)
+	
+
 
 @ManyToMany (잘 안씀)
 
 
 5. 영속성 전이
 
+	DB가 아닌, 영속성 내에서 발생
+	
+	
+
+
+
+
+
+
 6. 지연로딩
 	@ManyToOne
 		- fetch
-			FetchType.EAGER : 즉시 로딩 전략
+			FetchType.EAGER : 즉시 로딩 전략 (기본적인 전략)
 					- 처음부터 join
 					- 테이블 조인이 많으면 로딩이 느려진다(성능 저하)
 					
@@ -79,8 +90,12 @@ asc
 						- 조인이 많이 필요한 엔티티에서의 성능 향상
 						- 문제는 목록 형태의 데이터 조회시
 							1 + N 문제가 발생
-						
-
+							- 필요한 경우에만 즉시 로딩 전략
+							- jpql : fetch join
+						 
+		@OneToMany
+				fetch
+					기본 전략 : LAZY
 
 
 
@@ -108,3 +123,10 @@ asc
 	member -> boardData -> member...
 순환참조(메모리 부족 오류 발생)
 (lombok toString 메서드는 getter를 통해서 값을 조회.)
+
+
+8. @IdClass
+	- 기본키를 여러개 조합해서 사용
+	
+분류 테이블
+분류, 서브분류
