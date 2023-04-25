@@ -1,0 +1,22 @@
+API DOC
+
+문서만 봐도 요청을 어떻게 하는 지 알수있게..
+
+
+ExceptionHandler
+@ExceptionHandler(RuntimeException.class)
+
+ARC
+테스트할 때 요청 url 설정
+post인지 get인지 설정
+HEADERS
+ADD 누르고
+Content-Type, application/json 집어넣기
+json 형식 데이터 집어넣기..
+
+
+테스트시 고려사항
+@Transactional
+@MockMVC
+
+
