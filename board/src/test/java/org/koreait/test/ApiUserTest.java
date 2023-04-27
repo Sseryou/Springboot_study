@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-//@TestPropertySource(locations="application-test.properties")
+@TestPropertySource(locations="classpath:application-test.properties")
 public class ApiUserTest {
 
     @Autowired
@@ -34,7 +34,7 @@ public class ApiUserTest {
     @BeforeEach
     void init() {
         joinForm = new JoinForm();
-        joinForm.setUserId("user11");
+        joinForm.setUserId("user12");
         joinForm.setUserPw("12345678");
         joinForm.setUserNm("사용자05");
         joinForm.setUserPwRe("12345678");
@@ -49,7 +49,6 @@ public class ApiUserTest {
                 ,joinForm.getUserPw()
                 ,joinForm.getUserPwRe()
                 ,joinForm.getUserNm());
-
 
         mockMvc.perform(post("/api/user/account")
                         .content(params)

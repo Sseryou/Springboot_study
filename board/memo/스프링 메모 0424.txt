@@ -21,9 +21,18 @@ UserDetails 인터페이스 : 사용자 정보
 UserDetailsService 인터페이스
 	- 세션 -> String username : 아이디
 	- 회원정보를 DB에 조회 -> UserDetails 구현 클래스에 값을 넣어주는 역할
+	
+	
+1. 회원정보 조회
+
+2. springsecurity6
+
 
 
 인터페이스 명세서
+기능 -> URL로 정리
+요청 방식, 응답 결과 정리가 핵심
+카카오, 네이버 API 참고 (로그인 등..)
 
 
 REST 방식으로 회원가입 로그인 구현하기

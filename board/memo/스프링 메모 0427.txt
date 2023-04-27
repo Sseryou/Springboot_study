@@ -1,0 +1,38 @@
+Spring Security
+
+UserDetails : User -> 재정의해서 사용(조회할수 있는내용 한정적)
+UserDetailsService
+
+로그인한 회원 정보 조회
+
+1) 컨트롤러 주입
+	- Principal principal
+	- @AuthenticationPrincipal
+	
+2) Spring Bean
+	- SecurityContextHolder
+	 Object principal = SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal();
+        UserInfo userInfo = (UserInfo)principal;
+		
+		
+타임리프 확장 모듈(spring security)
+thymeleaf-extras-springsecurity6
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	
+	sec:authorize
+					- isAnonymous() : 미로그인
+					- isAuthenticate() : 로그인 상태
+					- hasAuthority("권한명")
+					- hasAnyAuthority("권한명")
+					
+Spring Data JPA Auditing + Spring Security : 수정자
+
+AuditorAware 인터페이스 구현, 스프링 빈
+
+포트
+80 : http
+443 : https
+이 포트를 사용하면 사이트를 1개밖에 쓸 수 없다.
+
+프록시를 이용해 매핑할 예정

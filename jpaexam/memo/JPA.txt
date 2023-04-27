@@ -1,0 +1,52 @@
+Spring Data JPA
+
+
+spring.jpa.hibernate.ddl-auto
+		- create : 서버 시작시에 모든 엔티티에 테이블을 DROP하고 다시생성 - 개발 초기(테이블 구조가 많이 바뀌기 때문)
+		- update : 서버 시작시에 테이블 DROP하지 않음 , 변경 사항만 반영 - 개발 중기
+		- validate : 엔티티와 테이블간의 차이를 체크 : 차이 있으면 예외 발생, 변경 불가 - 테스트 서버, 실서버
+		- none : 아무것도 하지 않음 - 실 서버
+	
+JPA (Java Persistence API) : 자바 영속성 API
+
+API(Application Programming Interface)
+
+Hibernate Entity Manager
+
+영속성(Persistence) : 엔티티의 상태 변화 감지 메모리 영역
+https://jakarta.ee/specifications/platform/10/apidocs/
+
+
+EntityManagerFactory
+	-> EntityManager : 엔티티의 영속 상태 관리
+		- persist(엔티티) - 영속성에 추가(영속성 관리 상태)
+		- flush() : DB에 반영
+
+	persiste(엔티티) - 영속성 컨텍스트 추가(상태 관리)
+						- 없는 엔티티 -> INSERT
+						- 있는 엔티티 -> UPDATE
+	
+	remove(엔티티) - 영속성을 제거 상태로 변경
+						- flush시에 DELETE 쿼리 실행
+						
+	detach(엔티티) - 영속성 상태 분리(상태 관리 X)
+						- 변경해도 DB 반영 X
+	
+	merge(엔티티) - 영속성 상태 분리가 된 엔티티 -> 영속 상태(상태 관리)
+	
+	find(엔티티 클래스, 기본키) - 조회
+										- 조회하는 엔티티가 이미 영속 상테에 있으면 그걸 가져오고
+										- 없으면 DB에서 SELECT 쿼리 실행 -> 조회된 데이터 -> 영속 상태
+										- flush() 먼저 수행되고 쿼리, 엔티티 조회
+	
+	-> 다양한 조회 쿼리를 수행하기에는 한계
+	-> JPQL(Java Persistence Query Language) //주로 조회(질의) 위주
+		- 엔티티로 조회 쿼리를 작성
+		- 영속 상태
+		
+Spring Data JPA
+
+(CrudRepository)
+JpaRepository Interface -> DAO 클래스를 대신
+
+- 쿼리 수행을 할 수 있는 구현체를 대신 다 생성

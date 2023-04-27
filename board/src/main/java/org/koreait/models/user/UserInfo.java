@@ -52,6 +52,7 @@ public class UserInfo implements UserDetails {
         return true;
     }
 
+    //계정 잠금설정
     @Override
     public boolean isEnabled() {
         return true;
