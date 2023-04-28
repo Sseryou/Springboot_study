@@ -50,3 +50,48 @@ Spring Data JPA
 JpaRepository Interface -> DAO 클래스를 대신
 
 - 쿼리 수행을 할 수 있는 구현체를 대신 다 생성
+
+
+
+
+
+Lombok
+toString
+	- getter 항목 출력
+	
+	Member -> List<BoardData> -> toString() -> getMember() -> List<BoardData> ....
+	- 순환 참조
+	- 오류 발생
+	
+	- ToString.Exclude
+	
+	
+	fetch
+		FetchType.EAGER : 즉시 로딩
+								- 처음부터 JOIN
+					.LAZY :  지연로딩
+								- 메인 엔티티의 SELECT만 실행
+								- 관계 매핑되어있는 엔티티는 필요할때면 추가적으로 쿼리
+								
+								- 목록 형태로 조회시
+									- N + 1 -> 성능 저하
+									- 글로벌 전략 LAZY
+									- 필요한 경우는 fetch join을 통해서 즉시 로딩
+									- JPQL
+									- Querydsl
+								
+		N+1 문제를 해결할 수 있다.(패치 조인)
+		
+@OneToOne 
+	예시) 한명의 회원이 한개의 주소를 갖고 있다.
+		
+		
+		
+		
+Repository
+JpaRepository 
+		- 쿼리메서드
+		
+쿼리 메서드만으로는 복잡한 쿼리
+@Query("JPQL 쿼리")
+

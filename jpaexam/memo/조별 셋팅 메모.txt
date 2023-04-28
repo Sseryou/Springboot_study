@@ -1,0 +1,45 @@
+조별 셋팅
+
+1. 의존성 추가
+
+2. 초기셋팅 - 1명, 총괄(PM)
+	- 테스트 케이스 작성(기획) - 1명
+	- 코드 리뷰, 리팩토링
+	- 게시판(관리자) -> 프론트
+	- 2명
+	- 프론트 디자인 다듬기 - 1명
+	- README.md 꾸미기
+	
+초기 셋팅
+- 의존성 추가
+- 기본 레이아웃
+- 공통 예외처리
+	- (@ControllerAdvice - @ExceptionHandler)
+	- (@RestControllerAdvice - @ExceptionHandler)
+	- MVCconfig
+		- 필요한 부분 세팅
+		- 파일 업로드 경로 매핑
+			(addResourceHandlers)
+		-메세지 파일 세팅
+		
+- 공통 오류 페이지
+	템플릿 경로/error
+			- 상태 코드별 오류
+				상태코드.html
+			- 기본 오류 페이지 처리
+			
+- JPA 설정
+		
+- 시큐리티
+
+
+
+- 시간을 지속적으로 보내기 위해 웹소켓 사용
+n+1 문제
+
+연관 관계 매핑
+
+@ManyToOne
+
+
+
